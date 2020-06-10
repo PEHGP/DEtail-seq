@@ -1,6 +1,5 @@
 # DEtail-seq
 DEtail-seq Analysis Pipline
-First,duplicated reads which have same sequences for both forward and reverse reads were removed.And our own scripts RemoveSamReads.py were used to remove duplicated reads.Then,reads were aligned to the reference genome with Bowtie2 using --local settings.For visualization, the aligned reads files (BAM) were converted to single base bigWig file with 1 bp bins using bamCoverage fromdeepTools.Finally, poisson distribution is used for single base call peak, which is implemented by our own script DetailCallPeak.py.
 ----------------------
 ### Requires:
 - [python](http://www.python.org/downloads/)
@@ -16,6 +15,7 @@ First,duplicated reads which have same sequences for both forward and reverse re
 - [biopython](https://biopython.org/)
 ## Documentation:
 step by step protocols
+First,duplicated reads which have same sequences for both forward and reverse reads were removed.And our own scripts RemoveSamReads.py were used to remove duplicated reads.Then,reads were aligned to the reference genome with Bowtie2 using --local settings.For visualization, the aligned reads files (BAM) were converted to single base bigWig file with 1 bp bins using bamCoverage fromdeepTools.Finally, poisson distribution is used for single base call peak, which is implemented by our own script DetailCallPeak.py.
 ### 1.Remove duplication reads
 ```
 RemoveSamReads.py test_R1.fastq.gz test_R2.fastq.gz test
@@ -37,3 +37,4 @@ bamCoverage -v -p 60 -b test.sort.bam -o test_fwd.bw --minMappingQuality 30 --bi
 DetailCallPeak.py test_fwd.bw fwd test_fwd 0.01
 DetailCallPeak.py test_rev.bw rev test_rev 0.01
 ```
+## Citation
