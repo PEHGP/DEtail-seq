@@ -1,7 +1,7 @@
 # DEtail-seq
 ## Introduction
 DEtail-seq is ....
-### Requires:
+### Tools Requires:
 - [python](http://www.python.org/downloads/)
 - [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 - [bedtools](https://bedtools.readthedocs.io/en/latest/)
@@ -14,7 +14,7 @@ DEtail-seq is ....
 - [statsmodels](https://www.statsmodels.org)
 - [biopython](https://biopython.org/)
 ## Documentation:
-step by step protocols
+step by step protocols.\
 First,duplicated reads which have same sequences for both forward and reverse reads were removed.And our own scripts RemoveSamReads.py were used to remove duplicated reads.Then,reads were aligned to the reference genome with Bowtie2 using --local settings.For visualization, the aligned reads files (BAM) were converted to single base bigWig file with 1 bp bins using bamCoverage fromdeepTools.Finally, poisson distribution is used for single base call peak, which is implemented by our own script DetailCallPeak.py.
 ### 1.Remove duplication reads
 ```
