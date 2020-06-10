@@ -16,23 +16,23 @@ First,duplicated reads which have same sequences for both forward and reverse re
 - [biopython](https://biopython.org/)
 ## Documentation:
 step by step protocols
-###1.Remove duplication reads
+### 1.Remove duplication reads
 ```
 RemoveSamReads.py test_R1.fastq.gz test_R2.fastq.gz test
 ```
 
-###2.Alignment
+### 2.Alignment
 ```
 bowtie2-build --threads 20 RefGenome.fasta RefGenome
 bowtie2 --local --phred33 -p 20 -t -x RefGenome -1 test_dup_R1.fq.gz -2 test_dup_R2.fq.gz 2>test_align.info|samtools view -bS -1 |samtools sort -@ 10 -m 5G -l 9 -o test.sort.bam
 ```
-###3.Converting BAM to single base bigWig and split strand
+### 3.Converting BAM to single base bigWig and split strand
 ```
 samtools index test.sort.bam
 bamCoverage -v -p 60 -b test.sort.bam -o test_rev.bw --minMappingQuality 30 --binSize 1  --Offset 1 --samFlagInclude 128 --filterRNAstrand forward
 bamCoverage -v -p 60 -b test.sort.bam -o test_fwd.bw --minMappingQuality 30 --binSize 1  --Offset 1 --samFlagInclude 128 --filterRNAstrand reverse
 ```
-###4.Single base call peak
+### 4.Single base call peak
 ```
 DetailCallPeak.py test_fwd.bw fwd test_fwd 0.01
 DetailCallPeak.py test_rev.bw rev test_rev 0.01
