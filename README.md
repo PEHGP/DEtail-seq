@@ -1,13 +1,12 @@
 # DEtail-seq
 ## Introduction
 DEtail-seq is ....
-### Tools Requires:
+### Requires:
 - [python](http://www.python.org/downloads/)
 - [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 - [bedtools](https://bedtools.readthedocs.io/en/latest/)
 - [samtools](http://www.htslib.org/)
 - [deeptTools](https://github.com/deeptools/deepTools)
-### Python packages Requires:
 - [pyBigWig](https://github.com/deeptools/pyBigWig)
 - [numpy](https://numpy.org/)
 - [scipy](https://www.scipy.org/)
