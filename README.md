@@ -14,7 +14,7 @@ DEtail-seq is ....
 - [statsmodels](https://www.statsmodels.org)
 - [biopython](https://biopython.org/)
 ## Documentation:
-First,duplicated reads which had same sequences for both forward and reverse reads were removed. And our own scripts RemoveSamReads.py were used to remove duplicated reads. Then,reads were aligned to the reference genome with Bowtie2 using --local settings. For visualization and spliting strand, the aligned reads files (BAM) were converted to single base bigWig file with 1 bp bins using bamCoverage from deepTools.Finally, poisson distribution is used for single base call peak, which is implemented by our own script DetailCallPeak.py.  
+First, duplicated reads which had same sequences for both forward and reverse reads were removed. And our own scripts RemoveSamReads.py were used to remove duplicated reads. Then, reads were aligned to the reference genome with Bowtie2 using --local settings. For visualization and spliting strand, the aligned reads files (BAM) were converted to single base bigWig file with 1 bp bins using bamCoverage from deepTools. Finally, poisson distribution is used for single base call peak, which is implemented by our own script Hotspotcalling.py.  
   
 **The detailed protocols were as follows:**
 ### 1.Remove duplication reads
@@ -38,7 +38,7 @@ $ bamCoverage -v -p 60 -b test.sort.bam -o test_fwd.bw --minMappingQuality 30 --
 ```
 ### 4.Single base call peak
 ```
-$ DetailCallPeak.py test_fwd.bw fwd test_fwd 0.01
-$ DetailCallPeak.py test_rev.bw rev test_rev 0.01
+$ Hotspotcalling.py test_fwd.bw fwd test_fwd 0.01
+$ Hotspotcalling.py test_rev.bw rev test_rev 0.01
 ```
 ## Citation
