@@ -7,10 +7,9 @@ import os,sys, argparse
 import gzip
 
 def ParseArg():
-    p=argparse.ArgumentParser( description = 'Remove duplicated reads which have same sequences for both forward and reverse reads. Choose the one appears first.', epilog = 'Library dependency: Bio, itertools')
+    p=argparse.ArgumentParser(description = 'Remove duplicated reads which have same sequences for both forward and reverse reads. Choose the one appears first.')
     p.add_argument('input1',type=str,metavar='reads1',help='left gz')
     p.add_argument('input2',type=str,metavar='reads2',help='right gz')
-    # left right One-to-one
     p.add_argument('prefix',type=str,metavar='prefix')
     if len(sys.argv)==1:
         p.print_help()
