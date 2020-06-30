@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 import itertools
@@ -16,9 +15,7 @@ def ParseArg():
         exit(0)
     return p.parse_args()
 
-
 def Main():
-
     Unique_seqs=set()
     args=ParseArg()
     outfile1 = gzip.open(args.prefix+"_dup_R1.fq.gz","wt")
