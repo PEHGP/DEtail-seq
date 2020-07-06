@@ -30,14 +30,14 @@ $ bowtie2 --local --phred33 -p 20 -t -x RefGenome -1 test_dup_R1.fq.gz -2 test_d
 ### 3.Converting BAM to single base bigWig and split strand
 ```
 $ samtools index test.sort.bam
-$ bamCoverage -v -p 60 -b test.sort.bam -o test_rev.bw --minMappingQuality 30 --binSize 1\
+$ bamCoverage -v -p 60 -b test.sort.bam -o test_Crick.bw --minMappingQuality 30 --binSize 1\
 --Offset 1 --samFlagInclude 128 --filterRNAstrand forward
-$ bamCoverage -v -p 60 -b test.sort.bam -o test_fwd.bw --minMappingQuality 30 --binSize 1\
+$ bamCoverage -v -p 60 -b test.sort.bam -o test_Waston.bw --minMappingQuality 30 --binSize 1\
 --Offset 1 --samFlagInclude 128 --filterRNAstrand reverse
 ```
 ### 4.Single base call peak
 ```
-$ Hotspotcalling.py test_fwd.bw fwd test_fwd 0.01
-$ Hotspotcalling.py test_rev.bw rev test_rev 0.01
+$ Hotspotcalling.py test_Waston.bw fwd test_Waston 0.01
+$ Hotspotcalling.py test_Crick.bw rev test_Crick 0.01
 ```
 ## Citation
