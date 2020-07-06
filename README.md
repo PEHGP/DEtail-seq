@@ -32,12 +32,12 @@ $ bowtie2 --local --phred33 -p 20 -t -x RefGenome -1 test_dup_R1.fq.gz -2 test_d
 $ samtools index test.sort.bam
 $ bamCoverage -v -p 60 -b test.sort.bam -o test_Crick.bw --minMappingQuality 30 --binSize 1\
 --Offset 1 --samFlagInclude 128 --filterRNAstrand forward
-$ bamCoverage -v -p 60 -b test.sort.bam -o test_Waston.bw --minMappingQuality 30 --binSize 1\
+$ bamCoverage -v -p 60 -b test.sort.bam -o test_Watson.bw --minMappingQuality 30 --binSize 1\
 --Offset 1 --samFlagInclude 128 --filterRNAstrand reverse
 ```
 ### 4.Single base call peak
 ```
-$ Hotspotcalling.py test_Waston.bw fwd test_Waston 0.01
+$ Hotspotcalling.py test_Watson.bw fwd test_Watson 0.01
 $ Hotspotcalling.py test_Crick.bw rev test_Crick 0.01
 ```
 ## Citation
