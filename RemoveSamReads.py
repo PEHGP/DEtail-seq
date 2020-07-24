@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 from Bio import SeqIO
-from Bio.SeqRecord import SeqRecord
 import itertools
 import os,sys, argparse
 import gzip
