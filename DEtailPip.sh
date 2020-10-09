@@ -15,8 +15,8 @@ cd $line
 
 bowtie2 --local --phred33 -p 15 -t -x ../$genome_index -1 ../${line}"_dup_R1.fq.gz" -2 ../${line}"_dup_R2.fq.gz" 2>${line}"_align.info"|samtools sort -@ 15 -m 5G -l 9 -O BAM -o ${line}".sort.bam"
 samtools index ${line}".sort.bam"
-bamCoverage -v -p 60 -b ${line}".sort.bam" -o ${line}"_Crick.bw" --minMappingQuality 30 --binSize 1  --Offset 1 --samFlagInclude 128 --filterRNAstrand forward
-bamCoverage -v -p 60 -b ${line}".sort.bam" -o ${line}"_Watson.bw" --minMappingQuality 30 --binSize 1  --Offset 1 --samFlagInclude 128 --filterRNAstrand reverse
+bamCoverage -v -p 60 -b ${line}".sort.bam" -o ${line}"_Crick.bw" --binSize 1  --Offset 1 --samFlagInclude 128 --filterRNAstrand forward
+bamCoverage -v -p 60 -b ${line}".sort.bam" -o ${line}"_Watson.bw" --binSize 1  --Offset 1 --samFlagInclude 128 --filterRNAstrand reverse
 DetailCallPeak.py ${line}"_Watson.bw" fwd ${line}"_Watson" 0.01 #Watson
 DetailCallPeak.py ${line}"_Crick.bw" rev ${line}"_Crick" 0.01 #Crick
 
