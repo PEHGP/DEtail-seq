@@ -1,6 +1,6 @@
 # DEtail-seq
 ## Introduction
-DEtail-seq is ....
+DEtail-seq provides a powerful approach to detect DSB ends in multiple species.
 ### Requires:
 - [python](http://www.python.org/downloads/)
 - [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
@@ -41,8 +41,6 @@ $ bamCoverage -v -p 60 -b test.sort.bam -o test_Watson.bw --binSize 1\
 usage: Hotspotcalling.py [-h] [--bw BIGWIG] [--strand {fwd,rev}]
                          [--qvalue QVALUE] [--res REST] [--prefix PREFIX]
 
-Hotspotcalling.py
-
 optional arguments:
   -h, --help          show this help message and exit
   --bw BIGWIG
@@ -50,10 +48,13 @@ optional arguments:
   --qvalue QVALUE
   --res REST          Restriction sites bed file
   --prefix PREFIX
+
 $ Hotspotcalling.py --bw test_Watson.bw --strand fwd --qvalue 0.01 --prefix test_Watson
 $ Hotspotcalling.py --bw test_Crick.bw --strand rev --qvalue 0.01 --prefix test_Crick
 
 ```
+If restriction enzymes are used, you may need to use the --res parameter to add restriction site information
+
 test_Crick_basepeaks.bed and test_Watson_basepeaks.bed are the hotspot results in bed format.
 test_Crick_basepeaks.xls and test_Watson_basepeaks.xls are the detailed hotspot results.
 

@@ -17,8 +17,8 @@ bowtie2 --local --phred33 -p 15 -t -x ../$genome_index -1 ../${line}"_dup_R1.fq.
 samtools index ${line}".sort.bam"
 bamCoverage -v -p 60 -b ${line}".sort.bam" -o ${line}"_Crick.bw" --binSize 1  --Offset 1 --samFlagInclude 128 --filterRNAstrand forward
 bamCoverage -v -p 60 -b ${line}".sort.bam" -o ${line}"_Watson.bw" --binSize 1  --Offset 1 --samFlagInclude 128 --filterRNAstrand reverse
-DetailCallPeak.py ${line}"_Watson.bw" fwd ${line}"_Watson" 0.01 #Watson
-DetailCallPeak.py ${line}"_Crick.bw" rev ${line}"_Crick" 0.01 #Crick
+Hotspotcalling.py --bw ${line}"_Watson.bw" --strand fwd --prefix ${line}"_Watson" --qvalue 0.01 #Watson
+Hotspotcalling.py --bw ${line}"_Crick.bw" --strand rev --prefix ${line}"_Crick" --qvalue 0.01 #Crick
 
 cd ..
 
