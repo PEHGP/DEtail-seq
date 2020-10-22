@@ -38,8 +38,21 @@ $ bamCoverage -v -p 60 -b test.sort.bam -o test_Watson.bw --binSize 1\
 ```
 ### 4.Hotspot calling
 ```
-$ Hotspotcalling.py test_Watson.bw fwd test_Watson 0.01
-$ Hotspotcalling.py test_Crick.bw rev test_Crick 0.01
+usage: Hotspotcalling.py [-h] [--bw BIGWIG] [--strand {fwd,rev}]
+                         [--qvalue QVALUE] [--res REST] [--prefix PREFIX]
+
+Hotspotcalling.py
+
+optional arguments:
+  -h, --help          show this help message and exit
+  --bw BIGWIG
+  --strand {fwd,rev}
+  --qvalue QVALUE
+  --res REST          Restriction sites bed file
+  --prefix PREFIX
+$ Hotspotcalling.py --bw test_Watson.bw --strand fwd --qvalue 0.01 --prefix test_Watson
+$ Hotspotcalling.py --bw test_Crick.bw --strand rev --qvalue 0.01 --prefix test_Crick
+
 ```
 test_Crick_basepeaks.bed and test_Watson_basepeaks.bed are the hotspot results in bed format.
 test_Crick_basepeaks.xls and test_Watson_basepeaks.xls are the detailed hotspot results.
