@@ -13,7 +13,7 @@ DEtail-seq provides a powerful approach to detect DSB ends in multiple species.
 - [statsmodels](https://www.statsmodels.org)
 - [biopython](https://biopython.org/)
 ## Documentation:
-First, duplicated reads which had same sequences for both forward and reverse reads were removed. And our own scripts RemoveSamReads.py were used to remove duplicated reads. Then, reads were aligned to the reference genome with Bowtie2 using --local settings. For visualization and spliting strand, the aligned reads files (BAM) were converted to single base bigWig file with 1 bp bins using bamCoverage from deepTools. Finally, poisson distribution is used for single base call peak, which is implemented by our own script Hotspotcalling.py.  
+First, duplicated reads which had same sequences for both forward and reverse reads were removed. And our own scripts RemoveSamReads.py were used to remove duplicated reads. Then, reads were aligned to the reference genome with Bowtie2 using --local settings. For visualization and spliting strand, the aligned reads files (BAM) were converted to single base bigWig file with 1 bp bins using bamCoverage from deepTools. Finally, poisson distribution is used for Hotspots calling, which is implemented by our own script Hotspotcalling.py.  
   
 **The detailed protocols were as follows:**
 ### 1.Removing duplication reads
@@ -57,5 +57,7 @@ If restriction enzymes are used, you may need to use the --res parameter to add 
 
 test_Crick_basepeaks.bed and test_Watson_basepeaks.bed are the hotspot results in bed format.
 test_Crick_basepeaks.xls and test_Watson_basepeaks.xls are the detailed hotspot results.
+
+**If you want to process multiple samples in batches, please refer to DEtailPip.sh**
 
 ## Citation
