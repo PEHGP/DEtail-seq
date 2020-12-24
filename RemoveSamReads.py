@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from Bio import SeqIO
-import itertools
+#import itertools
 import os,sys, argparse
 import gzip
 
@@ -21,7 +21,7 @@ def Main():
     outfile2 = gzip.open(args.prefix+"_dup_R2.fq.gz","wt")
     fastq_iter1 = SeqIO.parse(gzip.open(args.input1,"rt"),"fastq")
     fastq_iter2 = SeqIO.parse(gzip.open(args.input2,"rt"),"fastq")
-    for rec1, rec2 in itertools.izip(fastq_iter1, fastq_iter2):
+    for rec1, rec2 in zip(fastq_iter1, fastq_iter2):
         if str((rec1+rec2).seq) not in Unique_seqs:
             SeqIO.write(rec1,outfile1,"fastq")
             SeqIO.write(rec2,outfile2,"fastq")
