@@ -1,10 +1,10 @@
 # DEtail-seq
 DEtail-seq provides a powerful approach to detect DSB ends in multiple species.
-### Requirements:
+### Requirements
 |[python](http://www.python.org/downloads/)|[Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)|[bedtools](https://bedtools.readthedocs.io/en/latest/)|[samtools](http://www.htslib.org/)|[deeptTools](https://github.com/deeptools/deepTools)|
 |---|---|---|---|---|
 |[**pyBigWig**](https://github.com/deeptools/pyBigWig)|[**numpy**](https://numpy.org/)|[**scipy**](https://www.scipy.org/)|[**statsmodels**](https://www.statsmodels.org)|[**biopython**](https://biopython.org/)|
-## Documentation:
+## Documentation
 First, duplicated reads which had same sequences for both forward and reverse reads were removed. And our own scripts RemoveSamReads.py were used to remove duplicated reads. Then, reads were aligned to the reference genome with Bowtie2 using --local settings. For visualization and spliting strand, the aligned reads files (BAM) were converted to single base bigWig file with 1 bp bins using bamCoverage from deepTools. Finally, poisson distribution is used for Hotspots calling, which is implemented by our own script Hotspotcalling.py.  
   
 **The detailed protocols were as follows:**
