@@ -90,9 +90,10 @@ if __name__ == '__main__':
 		for n in BwHandle.intervals(Chr):
 			prob=poisson.cdf(float(n[2]),mu)
 			pvalue=1-prob
-			fm=Chr+"\t"+str(n[0])+"\t"+str(n[1])
-			fl.append((fm,n[2],pvalue))
-			pl.append(pvalue)
+			for i in range(n[0],n[1]):
+				fm=Chr+"\t"+str(i)+"\t"+str(i+1)
+				fl.append((fm,n[2],pvalue))
+				pl.append(pvalue)
 	qv=statsmodels.stats.multitest.multipletests(pl,method='fdr_bh') #Benjamini/Hochberg (non-negative)
 	fd={}
 	for fm,q in zip(fl,qv[1]):
@@ -109,4 +110,6 @@ if __name__ == '__main__':
 		p="\t".join(l[:3])
 		Fr.write(p+"\t"+l[3]+"\t"+fd[p]+"\n")
 	Fr.close()
-	os.system("bedtools merge -i %s_basepeaks.bed -c 5 -o mean|awk -F'\t' '{n+=1;print $1\"\t\"$2\"\t\"$3\"\t%s_merge_basepeak\"n\"\t\"$4}' >%s_merge_basepeaks.bed"%(Prefix,Prefix,Prefix))
+	#os.system("bedtools merge -i %s_basepeaks.bed -c 5 -o mean|awk -F'\t' '{n+=1;print $1\"\t\"$2\"\t\"$3\"\t%s_merge_basepeak\"n\"\t\"$4}' >%s_merge_basepeaks.bed"%(Prefix,Prefix,Prefix))
+	if BedFile!="no":
+		os.system("bedtools intersect -v -a %s_basepeaks.bed -b %s >%s_basepeaks_nocut.bed"%(Prefix,BedFile,Prefix))
