@@ -38,7 +38,8 @@ optional arguments:
   --bw BIGWIG
   --strand {fwd,rev}
   --qvalue QVALUE
-  --filter FILTER     A list of comma-delimited chromosome names,containing those chromosomes that should be excluded for computing the hotspotcalling and normalization.
+  --filter FILTER     A list of comma-delimited chromosome names, containing those chromosomes that 
+                      should be excluded for computing the hotspotcalling and normalization.
   --res REST          Restriction sites bed file
   --norm              normalizing bw file
   --debug
