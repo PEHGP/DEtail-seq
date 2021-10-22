@@ -105,7 +105,10 @@ def DealBw(Bw,Prefix,CutDict,FilterChrom,Norm=False,Rest=False,Debug=False,Scale
 	BwHandle.close()
 	if not Norm:
 		Mean=np.mean(BwValues)
-		MaxCut=max(CutValues)
+		if CutValues:
+			MaxCut=max(CutValues)
+		else:
+			MaxCut=0
 		return Mean,MaxCut
 	else:
 		BwNorm.close()
