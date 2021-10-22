@@ -38,11 +38,14 @@ optional arguments:
   --bw BIGWIG
   --strand {fwd,rev}
   --qvalue QVALUE
+  --filter FILTER     A list of comma-delimited chromosome names,containing those chromosomes that should be excluded for computing the hotspotcalling and normalization.
   --res REST          Restriction sites bed file
+  --norm              normalizing bw file
+  --debug
   --prefix PREFIX
 
-$ Hotspotcalling.py --bw test_Watson.bw --strand fwd --qvalue 0.01 --prefix test_Watson
-$ Hotspotcalling.py --bw test_Crick.bw --strand rev --qvalue 0.01 --prefix test_Crick
+$ Hotspotcalling.py --bw test_Watson.bw --strand fwd --qvalue 0.01 --prefix test_Watson --norm
+$ Hotspotcalling.py --bw test_Crick.bw --strand rev --qvalue 0.01 --prefix test_Crick --norm
 
 ```
 If restriction enzymes are used, you may need to use the --res parameter to add restriction site information

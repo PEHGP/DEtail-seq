@@ -136,6 +136,8 @@ if __name__ == '__main__':
 			l=x.split("\t")
 			CutDict[l[0]].append((int(l[1]),int(l[2])))
 		Rest=True
+	else:
+		Rest=False
 	if Strand=="fwd":
 		Strand="+"
 	elif Strand=="rev":
