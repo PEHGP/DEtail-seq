@@ -1,5 +1,6 @@
 # DEtail-seq
-DEtail-seq provides a powerful approach to detect DSB ends in multiple species.
+DEtail-seq provides a powerful approach to detect DSB ends in multiple species.  
+This pipeline is used to analyze DEtail-seq data.
 ## Requirements
 |[python](http://www.python.org/downloads/)|[Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)|[bedtools](https://bedtools.readthedocs.io/en/latest/)|[samtools](http://www.htslib.org/)|[deeptTools](https://github.com/deeptools/deepTools)|
 |---|---|---|---|---|
