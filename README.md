@@ -57,4 +57,5 @@ test_Crick_basepeaks.xls and test_Watson_basepeaks.xls are the detailed hotspot 
 
 **If you want to process multiple samples in batches, please refer to DEtailPip.sh**
 
-## Citation
+## Citing this work
+Xu, W., Liu, C., Zhang, Z., Sun, C., Li, Q., Li, K., Jiang, H., Li, W., & Sun, Q. (2023). [DEtail-seq is an ultra-efficient and convenient method for meiotic DNA break profiling in multiple organisms.](https://pubmed.ncbi.nlm.nih.gov/36723795/) Science China. Life sciences, 66(6), 1392–1407.
